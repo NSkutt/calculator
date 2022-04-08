@@ -19,3 +19,20 @@ function divide(x,y){
 	sum = x/y;
 	return sum;
 };
+
+function operate(x, operator, y){
+//console.log(arguments);
+	if(operator == '+'){
+		add(x,y)
+		return sum;
+	}else if(operator == '-'){
+	subtract(x,y)
+	return sum;
+	}else if(operator == '*'){
+		multiply(x,y)
+		return sum;
+	}else if(operator == '/'){
+		divide(x,y)
+		return sum;
+		}
+}
