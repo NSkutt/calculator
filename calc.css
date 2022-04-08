@@ -1,0 +1,50 @@
+body{height: 90vh; width: 90vh;}
+#calcBody{
+	height: 70vh;
+	width: 50vw;
+	display: grid;
+	background-color:grey;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 2fr 1fr 5fr;
+	grid-template-areas:
+	"disp disp disp"
+	"func func func"
+	"keys keys arith";
+	}
+#display{
+	grid-area:disp;
+	background-color: #ffdead;
+	font-size: 35px;
+	}
+.funcs{
+	grid-area:func;
+	}
+.keys{
+	grid-area:keys;
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	}
+.ariths{
+	grid-area:arith;
+	display: flex;
+	flex-direction: column;
+	}
+.btn{
+	min-width: 45px;
+	min-height:45px;
+	}
+/*No spinner hack from w3schools*/
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}	
+
