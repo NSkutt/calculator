@@ -1,9 +1,11 @@
 body{height: 90vh; width: 90vh;}
 #calcBody{
-	height: 70vh;
-	width: 50vw;
+	width:250px;
+	height:350px;
+	border:5px solid grey;
+	border-radius: 7px;
 	display: grid;
-	background-color:grey;
+	background-color:#536b75;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 2fr 1fr 5fr;
 	grid-template-areas:
@@ -13,8 +15,9 @@ body{height: 90vh; width: 90vh;}
 	}
 #display{
 	grid-area:disp;
-	background-color: #ffdead;
+	background-color: #f9d298;
 	font-size: 35px;
+	text-align: right;
 	}
 .funcs{
 	grid-area:func;
@@ -34,17 +37,4 @@ body{height: 90vh; width: 90vh;}
 	min-width: 45px;
 	min-height:45px;
 	}
-/*No spinner hack from w3schools*/
-/* Chrome, Safari, Edge, Opera */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}	
 
