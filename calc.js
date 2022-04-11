@@ -15,7 +15,7 @@ function subtract(x,y){
 function multiply(x,y){
 	sum = 0;
 	sum = x*y;
-	return sum;
+	return;
 };
 function divide(x,y){
 	sum = 0;
@@ -34,17 +34,14 @@ if(operator == "/" && y == 0){
 //console.log(arguments);
 	if(operator == '+'){
 		add(x,y)
-		return sum;
 	}else if(operator == '-'){
 	subtract(x,y)
-	return sum;
 	}else if(operator == '*'){
 		multiply(x,y)
-		return sum;
 	}else if(operator == '/'){
 		divide(x,y)
-		return sum;
-		}}
+		}
+	}
 }
 function clearAll(){
 display.value = 0;
@@ -55,7 +52,7 @@ function digit(e){
 		clearAll();
 		}else if(this.name == "+" || this.name == "-" || this.name == "*" || this.name == "/"){
 			if (display.classList.contains('working')){
-				y = parseInt(display.value);
+				y = parseFloat(display.value);
 				//console.log(x, operator, y);
 				operate(x, operator, y);
 				x = sum;
@@ -63,15 +60,17 @@ function digit(e){
 				operator = this.name;
 				}else{
 				display.classList.add('working');
-				x = parseInt(display.value);
+				x = parseFloat(display.value);
 				operator = this.name;
 				display.value = 0;
 				}
 	}else if(this.name =="="){
 		display.classList.remove('working');
-		y = parseInt(display.value);
+		y = parseFloat(display.value);
 		operate(x, operator, y);
-		display.value = sum;
+		if(typeof(sum) == 'number'){
+		display.value = sum.toFixed(10);
+		}else{display.value = sum}
 	}else{
 	display.value += this.name;
 	}
