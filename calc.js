@@ -2,6 +2,7 @@ let sum;
 let x;
 let operator;
 let y;
+const param = (/[\d|\/|\*|\+|\-|=|]/g || 'Enter')
 function add(x,y){
 	sum = 0;
 	sum = x + y;
@@ -79,8 +80,14 @@ let btns = [... document.querySelectorAll('.btn')];
 for(i=0; i<btns.length; i++){
 	btns[i].addEventListener('click', digit);
 	}
-
+function pressButton(e){
+	if(e.key.match(param) || e.key == "Enter"){
+		event.preventDefault();
+		if(e.key == 'Enter'){window['key='].dispatchEvent(new Event('click'))}else{
+		window['key'+e.key].dispatchEvent(new Event('click'));
+		}}
+}
 //[... document.querySelectorAll('.btn')].forEach(button => addEventListener("click", digit)); > Doesn't work right
-
+display.addEventListener('keyup', pressButton);
 //Correct the display width
 display.style.width = `${calcBody.clientWidth -10}px`;
