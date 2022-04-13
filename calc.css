@@ -21,6 +21,7 @@ body{height: 90vh; width: 90vh;}
 	}
 .funcs{
 	grid-area:func;
+	display:flex;
 	}
 .keys{
 	grid-area:keys;

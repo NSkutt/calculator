@@ -48,9 +48,13 @@ function clearAll(){
 display.value = 0;
 x = '';  y = ''; operator = ''; sum = 0;
 }
+
+//Button wiring
 function digit(e){
 	if(this.name == "CE"){
 		clearAll();
+		}else if(this.name == "undo"){
+			display.value = display.value.slice(0, -1);
 		}else if(this.name == "+" || this.name == "-" || this.name == "*" || this.name == "/"){
 			if (display.classList.contains('working')){
 				y = parseFloat(display.value);
@@ -80,10 +84,16 @@ let btns = [... document.querySelectorAll('.btn')];
 for(i=0; i<btns.length; i++){
 	btns[i].addEventListener('click', digit);
 	}
+//Attaches keyboard to onscreen buttons
 function pressButton(e){
-	if(e.key.match(param) || e.key == "Enter"){
+	if(e.key.match(param) || e.key == "Enter" || e.key == "Escape" || e.key  == "Backspace"){
 		event.preventDefault();
-		if(e.key == 'Enter'){window['key='].dispatchEvent(new Event('click'))}else{
+		if(e.key == 'Enter'){window['key='].dispatchEvent(new Event('click'))
+		}else if(e.key == "Escape"){ 
+			keyCE.dispatchEvent(new Event('click'))
+		}else if(e.key == "Backspace"){
+			keyUndo.dispatchEvent(new Event('click'))
+		}else{
 		window['key'+e.key].dispatchEvent(new Event('click'));
 		}}
 }
